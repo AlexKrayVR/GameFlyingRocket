@@ -16,6 +16,9 @@ public:
     MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
 
+private slots:
+    void on_Start_clicked();
+
 private:
     Ui::MainWidget *ui;
     Scene* scene;

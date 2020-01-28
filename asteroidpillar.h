@@ -6,10 +6,10 @@
 #include<QGraphicsScene>
 #include<QRandomGenerator>
 #include<QDebug>
-
+#include"rocket.h"
 #include<QGraphicsPixmapItem>
 #include<QPropertyAnimation>
-
+#include"scene.h"
 class AsteroidPillar :public QObject, public QGraphicsItemGroup
 {
     Q_OBJECT
@@ -18,15 +18,31 @@ public:
      explicit AsteroidPillar();
     ~AsteroidPillar();
     qreal x() const;
+    QPropertyAnimation * xAnimation;
+
+    void freeze();
+
+
+
 public slots:
     void setX(qreal x);
+
+signals:
+    void colliderFail();
+
+
 private:
+
+    bool collidesWithRocket();
+
     qreal m_x;
     int yPos;
+
     QGraphicsPixmapItem * topPillar;
     QGraphicsPixmapItem * bottomPillar;
 
-    QPropertyAnimation * xAnimation;
+    bool past;
+
 };
 
 #endif // ASTEROIDPILLAR_H

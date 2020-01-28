@@ -1,17 +1,16 @@
 #include "rocket.h"
 
-Rocket::Rocket(QObject *parent):QObject(parent),scale1(ScaleRocketFire::Middle),
+Rocket::Rocket(QObject *parent):QObject(parent),liveCount(3),
+    scale1(ScaleRocketFire::Middle),
     scale2(ScaleRocketFire::Middle),
     speedRocket(70.0)
 {
-
     setPixmap(QPixmap(":/Images/rocketMiddleSize.png"));
     setScale(0.12);
-    QTimer *timer=new QTimer(this);
+    timer=new QTimer(this);
     connect(timer,&QTimer::timeout,[=](){
         updateRocket();
     });
-    timer->start(50);
 }
 
 void Rocket::updateRocket()
@@ -68,4 +67,15 @@ void Rocket::moveRocket()
     if(this->y()>420){
         this->setY(420);
     }
+}
+
+void Rocket::freeze()
+{
+    qDebug()<<"rocket stop";
+    timer->stop();
+}
+
+void Rocket::startRocket()
+{
+    timer->start(50);
 }

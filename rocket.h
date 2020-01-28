@@ -5,6 +5,7 @@
 #include<QGraphicsPixmapItem>
 #include<QTimer>
 #include <Windows.h>
+#include<QDebug>
 
 class Rocket : public QObject, public QGraphicsPixmapItem
 {
@@ -13,6 +14,10 @@ public:
     explicit Rocket(QObject *parent=nullptr);
     void updateRocket();
     void moveRocket();
+    void freeze();
+    void startRocket();
+
+    int liveCount;
 private:
 
     enum ScaleRocketFire{
@@ -24,12 +29,8 @@ private:
     ScaleRocketFire scale2;
 
     qreal speedRocket;
+    QTimer *timer;
 
-
-
-    // QGraphicsItem interface
-public:
-    //QRectF boundingRect() const;
 };
 
 #endif // ROCKET_H

@@ -4,7 +4,7 @@
         <file>Images/rocketLittle.png</file>
         <file>Images/rocketMiddleSize.png</file>
         <file>Images/Space.jpg</file>
-        <file>Images/Asteroid5.png</file>
+        <file>Images/Asteroid7.png</file>
     </qresource>
     <qresource prefix="/Images"/>
 </RCC>

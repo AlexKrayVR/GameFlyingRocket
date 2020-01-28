@@ -18,3 +18,8 @@ MainWidget::~MainWidget()
     delete ui;
 }
 
+
+void MainWidget::on_Start_clicked()
+{
+    scene->startGame();
+}
